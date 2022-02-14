@@ -1,4 +1,4 @@
-/* Escreva um programa em C que reverta uma String utilizando Recursão.
+/*Escreva um programa em C que reverta uma String utilizando Recursão.
 Exemplo:
     - Dado como entrada: w3resource
     - Tenha como saída: ecruoser3w        */
