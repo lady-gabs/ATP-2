@@ -1,4 +1,4 @@
-/*Trabalho realizado por Gabriella Alves de Oliveira*/
+/*Trabalho realizado por Gabriella Alves de Oliveira    RA: 211150959 */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -168,11 +168,15 @@ void inicializacao(CHAVE* key, INFOS* informacao, int* cont, int* tam_infos){
     while(1){
 
         printf("\nInsira o nome do produto: ");
-        scanf("%s", key[i].nome);
+        scanf(" %[^\n]%*c", key[i].nome);
 
         for (int l = 0; l < strlen(key[i].nome); l++){
             
-            key[i].nome[l]=toupper(key[i].nome[l]);
+            if (key[i].nome[l] != ' '){
+            
+                key[i].nome[l] = toupper(key[i].nome[l]);
+            
+            }
 
         }
 
@@ -248,11 +252,16 @@ void vender(CHAVE* key, int cont, INFOS* informacao){
     produto = (char*) malloc (50*sizeof(char));
 
     printf("\nInsira o nome do produto: ");
-    scanf("%s", produto);
+    scanf("%[^\n]%*c", produto);
 
-    for (int i = 0; i < strlen(produto); i++)
-    {
-        produto[i] = toupper(produto[i]);
+    for (int i = 0; i < strlen(produto); i++){
+
+        if (produto[i] != ' '){
+            
+            produto[i] = toupper(produto[i]);
+            
+        }
+
     }
     
 
@@ -302,11 +311,15 @@ void cadastrar_novo_produto(CHAVE* key, INFOS* informacao, int* cont, int* tam_i
     while(1){
 
         printf("\nInsira o nome do produto: ");
-        scanf("%s", produto);
+        scanf(" %[^\n]%*c", produto);
 
         for (int l = 0; l < strlen(produto); l++){
             
-            produto[l]=toupper(produto[l]);
+            if (produto[l] != ' '){
+            
+                produto[l] = toupper(produto[l]);
+            
+            }
 
         }
         int n = *cont;
@@ -423,13 +436,18 @@ void remover_produto_do_estoque(CHAVE* key, int* cont, INFOS* informacao, int* a
     produto = (char*) malloc (50*sizeof(char));
 
     printf("\nInsira o nome do produto que deseja remover: ");
-    scanf("%s", produto);
+    scanf(" %[^\n]%*c", produto);
 
     for (int i = 0; i < strlen(produto); i++){
 
-        produto[i] = toupper(produto[i]);
+        if (produto[i] != ' '){
+            
+            produto[i] = toupper(produto[i]);
+            
+        }
 
     }
+
     int m = *cont;
     int aux1 = busca_binaria(produto, key, 0, m);
 
@@ -481,7 +499,7 @@ void consultar_estoque(CHAVE* key, INFOS* informacao, int cont){
 
 }
 
-void consultar_lucro(CHAVE* key, INFOS* informacao, int cont){
+void consultar_lucro(CHAVE* key, INFOS* informacao, int cont){  // seguindo as instrucoes do professor
 
     for (int i = 0; i < cont; i++){
         
@@ -504,12 +522,16 @@ void repor_estoque(CHAVE* key, INFOS* informacao, int cont){
     produto = (char*) malloc (50 * sizeof(char));
 
     printf("\nInsira o produto que deseja repor o estoque: ");
-    scanf("%s", produto);
+    scanf(" %[^\n]%*c", produto);
 
     for (int i = 0; i < strlen(produto); i++){
 
-        produto[i] = toupper(produto[i]);
-
+        if (produto[i] != ' '){
+            
+            produto[i] = toupper(produto[i]);
+            
+        }
+        
     }
     
     aux1 = busca_binaria(produto, key, 0, cont);
