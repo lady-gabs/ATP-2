@@ -1,4 +1,4 @@
-/*Trabalho realizado por Gabriella Alves de Oliveira    RA: 211150959 */
+/* Trabalho realizado por Gabriella Alves de Oliveira */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
